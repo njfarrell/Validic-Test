@@ -1,9 +1,13 @@
-package com.njfarrell.validictest.data;
+package com.njfarrell.validictest.data.models;
 
 public abstract class Item {
 
     private String text;
 
+    /**
+     * Item text getter.
+     * @return item text.
+     */
     public String getText() {
         if (text == null) {
             return "";

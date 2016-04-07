@@ -1,4 +1,4 @@
-package com.njfarrell.validictest.data;
+package com.njfarrell.validictest.data.models;
 
 import com.njfarrell.validictest.CustomRecyclerAdapter;
 

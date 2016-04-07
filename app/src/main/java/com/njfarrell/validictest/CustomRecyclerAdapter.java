@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.njfarrell.validictest.data.Item;
+import com.njfarrell.validictest.data.models.Item;
 
 import java.util.List;
 
@@ -57,6 +57,10 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         return data.get(position).getViewType();
     }
 
+    /**
+     * Update data and refresh UI for recycler view.
+     * @param data list of data.
+     */
     public void updateData(List<Item> data) {
         this.data = data;
         notifyDataSetChanged();
