@@ -63,12 +63,20 @@ public class TrendAsyncTask extends AsyncTask<Void, Void, List<Item>> {
     }
 
     private int getJobCount(String urlString) {
-        // TODO: Make sure to check for pagination
+        int jobCount = 0;
         JSONArray jobs = httpRequest(urlString);
-        if (jobs == null) {
-            return 0;
+        if (jobs != null) {
+            jobCount = jobs.length();
+            int pageNumber = 1;
+            while (jobs != null && jobs.length() >= 50) {
+                jobs = httpRequest(urlString + "&page=" + pageNumber);
+                if (jobs != null) {
+                    jobCount += jobs.length();
+                }
+                pageNumber++;
+            }
         }
-        return jobs.length();
+        return jobCount;
     }
 
     private JSONArray httpRequest(String urlString) {
